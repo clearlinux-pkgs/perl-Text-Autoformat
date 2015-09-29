@@ -4,7 +4,7 @@
 #
 Name     : perl-Text-Autoformat
 Version  : 1.72
-Release  : 1
+Release  : 2
 URL      : http://search.cpan.org/CPAN/authors/id/N/NE/NEILB/Text-Autoformat-1.72.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/N/NE/NEILB/Text-Autoformat-1.72.tar.gz
 Summary  : 'Automatic text wrapping and reformatting'
