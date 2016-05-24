@@ -4,7 +4,7 @@
 #
 Name     : perl-Text-Autoformat
 Version  : 1.74
-Release  : 6
+Release  : 7
 URL      : http://search.cpan.org/CPAN/authors/id/N/NE/NEILB/Text-Autoformat-1.74.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/N/NE/NEILB/Text-Autoformat-1.74.tar.gz
 Summary  : 'Automatic text wrapping and reformatting'
@@ -58,9 +58,9 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.22.0/Text/Autoformat.pm
-/usr/lib/perl5/site_perl/5.22.0/Text/Autoformat/Hang.pm
-/usr/lib/perl5/site_perl/5.22.0/Text/Autoformat/NullHang.pm
+/usr/lib/perl5/site_perl/5.24.0/Text/Autoformat.pm
+/usr/lib/perl5/site_perl/5.24.0/Text/Autoformat/Hang.pm
+/usr/lib/perl5/site_perl/5.24.0/Text/Autoformat/NullHang.pm
 
 %files doc
 %defattr(-,root,root,-)
