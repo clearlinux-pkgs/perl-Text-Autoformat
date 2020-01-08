@@ -4,13 +4,14 @@
 #
 Name     : perl-Text-Autoformat
 Version  : 1.75
-Release  : 22
+Release  : 23
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Text-Autoformat-1.75.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Text-Autoformat-1.75.tar.gz
-Summary  : A Perl module for automatic text wrapping and reformatting
+Summary  : 'Automatic text wrapping and reformatting'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Text-Autoformat-license = %{version}-%{release}
+Requires: perl-Text-Autoformat-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Text::Reform)
 
@@ -23,7 +24,6 @@ Automatic text wrapping and reformatting
 Summary: dev components for the perl-Text-Autoformat package.
 Group: Development
 Provides: perl-Text-Autoformat-devel = %{version}-%{release}
-Requires: perl-Text-Autoformat = %{version}-%{release}
 Requires: perl-Text-Autoformat = %{version}-%{release}
 
 %description dev
@@ -38,8 +38,18 @@ Group: Default
 license components for the perl-Text-Autoformat package.
 
 
+%package perl
+Summary: perl components for the perl-Text-Autoformat package.
+Group: Default
+Requires: perl-Text-Autoformat = %{version}-%{release}
+
+%description perl
+perl components for the perl-Text-Autoformat package.
+
+
 %prep
 %setup -q -n Text-Autoformat-1.75
+cd %{_builddir}/Text-Autoformat-1.75
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -64,7 +74,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Text-Autoformat
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Text-Autoformat/LICENSE
+cp %{_builddir}/Text-Autoformat-1.75/LICENSE %{buildroot}/usr/share/package-licenses/perl-Text-Autoformat/7e7147eb6dbe39bfc665364e6c717827fc8e51d3
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -77,9 +87,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Text/Autoformat.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Text/Autoformat/Hang.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Text/Autoformat/NullHang.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -87,4 +94,10 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Text-Autoformat/LICENSE
+/usr/share/package-licenses/perl-Text-Autoformat/7e7147eb6dbe39bfc665364e6c717827fc8e51d3
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Text/Autoformat.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Text/Autoformat/Hang.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Text/Autoformat/NullHang.pm
